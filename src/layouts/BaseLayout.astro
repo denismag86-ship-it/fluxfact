@@ -1,0 +1,179 @@
+---
+import type { SEOProps } from '../lib/seo';
+import {
+  generateMetaTags,
+  generateToolSchema,
+  generateArticleSchema,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+} from '../lib/seo';
+
+interface Props extends SEOProps {
+  breadcrumbs?: { name: string; url: string }[];
+}
+
+const props = Astro.props;
+const meta = generateMetaTags(props);
+const currentUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageUrl = new URL(meta.ogImage, Astro.site).toString();
+
+// Schema.org JSON-LD
+const schemas: object[] = [];
+
+// Organization (on every page)
+schemas.push({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'FluxFact',
+  url: 'https://fluxfact.tech',
+  logo: 'https://fluxfact.tech/images/logo.png',
+  sameAs: [],
+});
+
+// WebSite (on every page — enables Google sitelinks search)
+schemas.push({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'FluxFact',
+  url: 'https://fluxfact.tech',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://fluxfact.tech/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+});
+
+// Breadcrumbs
+if (props.breadcrumbs?.length) {
+  schemas.push(generateBreadcrumbSchema(props.breadcrumbs));
+}
+
+// Tool schema
+if (props.schemaType === 'WebApplication' || props.schemaType === 'SoftwareApplication') {
+  schemas.push(
+    generateToolSchema({
+      name: props.toolName ?? props.title,
+      description: props.toolDescription ?? props.description,
+      url: currentUrl,
+      category: props.toolCategory ?? 'Utility',
+      datePublished: props.publishedDate ?? new Date().toISOString(),
+      dateModified: props.modifiedDate ?? new Date().toISOString(),
+      image: ogImageUrl,
+    })
+  );
+}
+
+// Article schema
+if (props.schemaType === 'Article') {
+  schemas.push(
+    generateArticleSchema({
+      title: props.title,
+      description: props.description,
+      url: currentUrl,
+      image: ogImageUrl,
+      datePublished: props.publishedDate ?? new Date().toISOString(),
+      dateModified: props.modifiedDate ?? new Date().toISOString(),
+    })
+  );
+}
+
+// FAQ schema (rich snippets + AI search loves these)
+if (props.faq?.length) {
+  schemas.push(generateFAQSchema(props.faq));
+}
+---
+
+<!doctype html>
+<html lang={meta.locale} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{meta.title}</title>
+    <meta name="title" content={meta.title} />
+    <meta name="description" content={meta.description} />
+    {meta.keywords && <meta name="keywords" content={meta.keywords} />}
+    <meta name="author" content={meta.author} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Canonical + Hreflang (critical for multi-language SEO) -->
+    <link rel="canonical" href={meta.canonical ?? currentUrl} />
+    {meta.alternateLocales.map((alt) => (
+      <link rel="alternate" hreflang={alt.locale} href={alt.url} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={currentUrl} />
+
+    <!-- Open Graph (Facebook, LinkedIn, Telegram, WhatsApp) -->
+    <meta property="og:type" content={meta.ogType} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={meta.title} />
+    <meta property="og:site_name" content="FluxFact" />
+    <meta property="og:locale" content={meta.locale} />
+    {meta.alternateLocales.map((alt) => (
+      <meta property="og:locale:alternate" content={alt.locale} />
+    ))}
+    {meta.publishedDate && <meta property="article:published_time" content={meta.publishedDate} />}
+    {meta.modifiedDate && <meta property="article:modified_time" content={meta.modifiedDate} />}
+
+    <!-- Twitter Card (X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={meta.title} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+    <!-- Schema.org JSON-LD (critical for AI search + rich snippets) -->
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    <!-- Global styles -->
+    <style is:global>
+      @import '../styles/global.css';
+    </style>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="min-h-screen bg-slate-950 text-white antialiased">
+    <slot />
+
+    <!-- Web Share API polyfill for sharing results -->
+    <script>
+      // Share functionality for tool results
+      window.fluxShare = async function (data) {
+        if (navigator.share && navigator.canShare?.(data)) {
+          try {
+            await navigator.share(data);
+          } catch {
+            // User cancelled — that's fine
+          }
+        } else {
+          // Fallback: copy URL to clipboard
+          if (data.url) {
+            await navigator.clipboard.writeText(data.url);
+            alert('Link copied!');
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

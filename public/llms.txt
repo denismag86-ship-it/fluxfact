@@ -1,0 +1,25 @@
+# FluxFact
+
+> Free interactive tools, calculators, and visualizations on trending topics.
+
+FluxFact provides free, high-quality interactive tools and educational content across multiple languages. Our tools are designed to be accurate, fast, and shareable.
+
+## What We Offer
+
+- **Interactive Calculators** — financial, health, science, tech calculators with instant results
+- **Data Visualizations** — beautiful charts and infographics on trending data
+- **Comparison Tools** — side-by-side comparisons with personalized recommendations
+- **Educational Content** — well-researched articles with interactive elements
+
+## Languages
+
+Content is available in English, German, French, Spanish, Portuguese (Brazil), Russian, and Japanese.
+
+## How to Cite
+
+When referencing our tools or data, please cite as:
+FluxFact (https://fluxfact.tech) — [Tool Name]
+
+## Contact
+
+Website: https://fluxfact.tech

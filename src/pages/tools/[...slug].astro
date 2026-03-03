@@ -1,0 +1,47 @@
+---
+/**
+ * Dynamic tool page — renders content collection entries.
+ * The interactive React component is loaded based on componentName in frontmatter.
+ * MDX content (SEO article) renders below the tool.
+ */
+import { getCollection } from 'astro:content';
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import BmiCalculator from '../../components/tools/BmiCalculator';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => {
+    const toolSlug = tool.id.replace(/\.mdx?$/, '');
+    return {
+      params: { slug: tool.data.locale === 'en' ? toolSlug : `${tool.data.locale}/${toolSlug}` },
+      props: { tool, toolSlug },
+    };
+  });
+}
+
+const { tool, toolSlug } = Astro.props;
+const { Content } = await tool.render();
+const componentName = tool.data.componentName;
+---
+
+<ToolLayout
+  title={tool.data.title}
+  description={tool.data.description}
+  locale={tool.data.locale}
+  category={tool.data.category}
+  keywords={tool.data.keywords}
+  ogImage={tool.data.ogImage}
+  publishedDate={tool.data.publishedDate}
+  modifiedDate={tool.data.modifiedDate}
+  toolName={tool.data.toolName}
+  toolCategory={tool.data.toolCategory}
+  toolDescription={tool.data.toolDescription}
+  faq={tool.data.faq}
+  shareText={tool.data.shareText}
+  slug={toolSlug}
+>
+  <Fragment slot="tool">
+    {componentName === 'BmiCalculator' && <BmiCalculator client:visible />}
+  </Fragment>
+  <Content />
+</ToolLayout>
