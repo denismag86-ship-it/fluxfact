@@ -1,0 +1,48 @@
+---
+/**
+ * /login — sign in / register page.
+ * SSR (not prerendered) to handle redirects for logged-in users.
+ */
+export const prerender = false;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/ui/Navigation.astro';
+import Footer from '../components/ui/Footer.astro';
+import AuthForm from '../components/auth/AuthForm';
+
+const user = Astro.locals.user;
+if (user) return Astro.redirect('/');
+---
+
+<BaseLayout
+  title="Sign In — FluxFact"
+  description="Sign in or create an account to save your preferences and access community features."
+  locale="en"
+>
+  <Navigation locale="en" currentPath="/login/" />
+
+  <main class="pt-16 min-h-screen flex items-center justify-center">
+    <!-- Ambient background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+      <div class="orb-cyan w-[400px] h-[400px] -top-40 -right-40 opacity-20" />
+      <div class="orb-magenta w-[300px] h-[300px] bottom-20 -left-40 opacity-15" />
+    </div>
+
+    <div class="w-full max-w-lg mx-auto px-4 py-16">
+      <div class="text-center mb-10">
+        <h1 class="text-3xl font-bold text-white mb-3" style="letter-spacing: -0.02em">
+          Welcome to <span class="gradient-text">FluxFact</span>
+        </h1>
+        <p class="text-sm" style="color: #A0B0D0">
+          Sign in to save preferences and join the community.
+        </p>
+      </div>
+
+      <div class="card p-8">
+        <AuthForm client:load />
+      </div>
+    </div>
+  </main>
+
+  <Footer locale="en" />
+</BaseLayout>
