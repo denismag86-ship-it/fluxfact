@@ -7,6 +7,8 @@
 import { getCollection } from 'astro:content';
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import BmiCalculator from '../../components/tools/BmiCalculator';
+import CompoundInterestCalculator from '../../components/tools/CompoundInterestCalculator';
+import PasswordStrengthChecker from '../../components/tools/PasswordStrengthChecker';
 
 export async function getStaticPaths() {
   const tools = await getCollection('tools');
@@ -42,6 +44,8 @@ const componentName = tool.data.componentName;
 >
   <Fragment slot="tool">
     {componentName === 'BmiCalculator' && <BmiCalculator client:visible />}
+    {componentName === 'CompoundInterestCalculator' && <CompoundInterestCalculator client:visible />}
+    {componentName === 'PasswordStrengthChecker' && <PasswordStrengthChecker client:visible />}
   </Fragment>
   <Content />
 </ToolLayout>

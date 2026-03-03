@@ -1,0 +1,113 @@
+---
+/**
+ * Tools Index — shows all available tools organized by category.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/ui/Navigation.astro';
+import Footer from '../../components/ui/Footer.astro';
+import { t, getAlternateLocales } from '../../i18n/translations';
+
+const locale = 'en';
+const tools = await getCollection('tools', ({ data }) => data.locale === 'en');
+
+const categoryIcons: Record<string, string> = {
+  finance: '📊',
+  health: '🏋️',
+  tech: '💻',
+  math: '📐',
+  travel: '🌍',
+  fun: '🎮',
+};
+
+const categoryGradients: Record<string, string> = {
+  finance: 'from-accent-blue/20 to-accent-purple/20',
+  health: 'from-emerald-500/20 to-cyan-500/20',
+  tech: 'from-accent-pink/20 to-accent-coral/20',
+  math: 'from-amber-500/20 to-orange-500/20',
+  travel: 'from-sky-500/20 to-blue-500/20',
+  fun: 'from-violet-500/20 to-fuchsia-500/20',
+};
+
+// Group by category
+const byCategory = new Map<string, typeof tools>();
+for (const tool of tools) {
+  const cat = tool.data.category;
+  if (!byCategory.has(cat)) byCategory.set(cat, []);
+  byCategory.get(cat)!.push(tool);
+}
+---
+
+<BaseLayout
+  title="All Tools & Calculators — FluxFact"
+  description="Browse all free interactive tools, calculators, and visualizations. Finance, health, tech, science — explore, calculate, and share."
+  ogImage="/og/tools.png"
+  keywords={['free tools', 'online calculators', 'interactive tools', 'free calculator']}
+  alternateLocales={getAlternateLocales('/tools/')}
+  locale="en"
+>
+  <Navigation locale={locale} currentPath="/tools/" />
+
+  <main class="pt-16">
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="orb-blue w-[400px] h-[400px] -top-40 -right-20 opacity-30" />
+      <div class="orb-purple w-[300px] h-[300px] top-20 -left-20 opacity-20" />
+      <div class="noise absolute inset-0" />
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] mb-6">
+          <span class="text-sm text-txt-secondary">{tools.length} tools available</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold text-txt-primary mb-4" style="letter-spacing: -0.03em">
+          All <span class="gradient-text">Tools</span>
+        </h1>
+        <p class="text-lg text-txt-secondary max-w-xl leading-relaxed">
+          Free interactive calculators, visualizations, and tools. No sign-up required — everything runs in your browser.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tools by category -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+      {[...byCategory.entries()].map(([category, categoryTools]) => (
+        <div class="mb-16">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="text-2xl">{categoryIcons[category] ?? '🔧'}</span>
+            <h2 class="text-xl font-semibold text-txt-primary capitalize">{category}</h2>
+            <span class="text-sm px-2.5 py-0.5 rounded-full bg-white/[0.06] text-txt-muted">{categoryTools.length}</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categoryTools.map((tool) => {
+              const slug = tool.id.replace(/\.mdx?$/, '');
+              return (
+                <a href={`/tools/${slug}/`} class="tool-card group">
+                  <div class="flex items-start justify-between mb-5">
+                    <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${categoryGradients[category] ?? 'from-white/10 to-white/5'} border border-white/[0.06] flex items-center justify-center text-xl`}>
+                      {categoryIcons[category] ?? '🔧'}
+                    </div>
+                    <span class="badge-green">{t(locale, 'tool.free')}</span>
+                  </div>
+                  <h3 class="text-lg font-semibold text-txt-primary mb-2 group-hover:text-accent-blue transition-colors">
+                    {tool.data.title.split('—')[0].trim()}
+                  </h3>
+                  <p class="text-sm text-txt-secondary leading-relaxed">
+                    {tool.data.description}
+                  </p>
+                  <div class="mt-4 flex items-center gap-2 text-xs text-txt-muted">
+                    {tool.data.tags?.slice(0, 2).map((tag: string) => (
+                      <span class="px-2 py-0.5 rounded bg-white/[0.04]">{tag}</span>
+                    ))}
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </section>
+  </main>
+
+  <Footer locale={locale} />
+</BaseLayout>

@@ -48,8 +48,12 @@ const tools = defineCollection({
       answer: z.string(),
     })).default([]),
 
-    // Related tools (by slug)
-    relatedTools: z.array(z.string()).default([]),
+    // Related tools
+    relatedTools: z.array(z.object({
+      title: z.string(),
+      slug: z.string(),
+      description: z.string(),
+    })).default([]),
 
     // Viral mechanics
     shareText: z.string().optional(), // Pre-filled share text template
