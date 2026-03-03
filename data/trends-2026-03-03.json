@@ -1,0 +1,712 @@
+{
+  "timestamp": "2026-03-03T19:21:17.545Z",
+  "signalCounts": {
+    "github": 30,
+    "hn": 20,
+    "reddit": 0
+  },
+  "trends": [
+    {
+      "keyword": "maderix/ANE",
+      "description": "Training neural networks on Apple Neural Engine via reverse-engineered private APIs",
+      "score": 63,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 25,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "visualizer"
+      ],
+      "category": "ai",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "objective-c"
+      ],
+      "signals": [
+        {
+          "title": "maderix/ANE",
+          "url": "https://github.com/maderix/ANE",
+          "source": "github",
+          "engagement": 4327,
+          "velocity": 1268
+        }
+      ]
+    },
+    {
+      "keyword": "sindresorhus/awesome",
+      "description": "😎 Awesome lists about all kinds of interesting topics",
+      "score": 58,
+      "scoreBreakdown": {
+        "engagement": 25,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "awesome",
+        "awesome-list",
+        "lists",
+        "resources",
+        "unicorns"
+      ],
+      "signals": [
+        {
+          "title": "sindresorhus/awesome",
+          "url": "https://github.com/sindresorhus/awesome",
+          "source": "github",
+          "engagement": 442205,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "freeCodeCamp/freeCodeCamp",
+      "description": "freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
+      "score": 58,
+      "scoreBreakdown": {
+        "engagement": 25,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "careers",
+        "certification",
+        "community",
+        "curriculum",
+        "d3",
+        "typescript"
+      ],
+      "signals": [
+        {
+          "title": "freeCodeCamp/freeCodeCamp",
+          "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+          "source": "github",
+          "engagement": 437701,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "EbookFoundation/free-programming-books",
+      "description": ":books: Freely available programming books",
+      "score": 58,
+      "scoreBreakdown": {
+        "engagement": 25,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "books",
+        "education",
+        "hacktoberfest",
+        "list",
+        "resource",
+        "python"
+      ],
+      "signals": [
+        {
+          "title": "EbookFoundation/free-programming-books",
+          "url": "https://github.com/EbookFoundation/free-programming-books",
+          "source": "github",
+          "engagement": 383527,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "kamranahmedse/developer-roadmap",
+      "description": "Interactive roadmaps, guides and other educational content to help developers grow in their careers.",
+      "score": 57,
+      "scoreBreakdown": {
+        "engagement": 24,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "angular-roadmap",
+        "backend-roadmap",
+        "blockchain-roadmap",
+        "computer-science",
+        "dba-roadmap",
+        "typescript"
+      ],
+      "signals": [
+        {
+          "title": "kamranahmedse/developer-roadmap",
+          "url": "https://github.com/kamranahmedse/developer-roadmap",
+          "source": "github",
+          "engagement": 350072,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "openclaw/openclaw",
+      "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 ",
+      "score": 54,
+      "scoreBreakdown": {
+        "engagement": 3,
+        "velocity": 1,
+        "contentPotential": 25,
+        "viralPotential": 25
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "analysis",
+        "roundup"
+      ],
+      "category": "ai",
+      "contentFormat": "news",
+      "relatedKeywords": [
+        "ai",
+        "assistant",
+        "crustacean",
+        "molty",
+        "openclaw",
+        "typescript",
+        "mark-zuckerberg"
+      ],
+      "signals": [
+        {
+          "title": "openclaw/openclaw",
+          "url": "https://github.com/openclaw/openclaw",
+          "source": "github",
+          "engagement": 253643,
+          "velocity": 0
+        },
+        {
+          "title": "Meta’s AI smart glasses and data privacy concerns",
+          "url": "https://www.svd.se/a/K8nrV4/metas-ai-smart-glasses-and-data-privacy-concerns-workers-say-we-see-everything",
+          "source": "hackernews",
+          "engagement": 1322,
+          "velocity": 63.5
+        },
+        {
+          "title": "Claude's Cycles [pdf]",
+          "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf",
+          "source": "hackernews",
+          "engagement": 291,
+          "velocity": 34.7
+        },
+        {
+          "title": "GPT‑5.3 Instant",
+          "url": "https://openai.com/index/gpt-5-3-instant/",
+          "source": "hackernews",
+          "engagement": 67,
+          "velocity": 48.1
+        },
+        {
+          "title": "When AI writes the software, who verifies it?",
+          "url": "https://leodemoura.github.io/blog/2026/02/28/when-ai-writes-the-worlds-software.html",
+          "source": "hackernews",
+          "engagement": 53,
+          "velocity": 19.1
+        }
+      ],
+      "person": "Mark Zuckerberg"
+    },
+    {
+      "keyword": "vinta/awesome-python",
+      "description": "An opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "score": 52,
+      "scoreBreakdown": {
+        "engagement": 19,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "awesome",
+        "collections",
+        "python",
+        "python-framework",
+        "python-library"
+      ],
+      "signals": [
+        {
+          "title": "vinta/awesome-python",
+          "url": "https://github.com/vinta/awesome-python",
+          "source": "github",
+          "engagement": 285379,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "awesome-selfhosted/awesome-selfhosted",
+      "description": "A list of Free Software network services and web applications which can be hosted on your own servers",
+      "score": 52,
+      "scoreBreakdown": {
+        "engagement": 19,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "checker"
+      ],
+      "category": "security",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "awesome",
+        "awesome-list",
+        "cloud",
+        "free-software",
+        "hosting"
+      ],
+      "signals": [
+        {
+          "title": "awesome-selfhosted/awesome-selfhosted",
+          "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+          "source": "github",
+          "engagement": 276313,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "facebook/react",
+      "description": "The library for web and native user interfaces.",
+      "score": 50,
+      "scoreBreakdown": {
+        "engagement": 17,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "declarative",
+        "frontend",
+        "javascript",
+        "library",
+        "react"
+      ],
+      "signals": [
+        {
+          "title": "facebook/react",
+          "url": "https://github.com/facebook/react",
+          "source": "github",
+          "engagement": 243517,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "Lakr233/vphone-cli",
+      "description": "",
+      "score": 49,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 11,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "python"
+      ],
+      "signals": [
+        {
+          "title": "Lakr233/vphone-cli",
+          "url": "https://github.com/Lakr233/vphone-cli",
+          "source": "github",
+          "engagement": 2886,
+          "velocity": 542
+        }
+      ]
+    },
+    {
+      "keyword": "World-Open-Graph/br-acc",
+      "description": "World Transparency Graph public codebase (🚧 website in progress)",
+      "score": 49,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 11,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "python"
+      ],
+      "signals": [
+        {
+          "title": "World-Open-Graph/br-acc",
+          "url": "https://github.com/World-Open-Graph/br-acc",
+          "source": "github",
+          "engagement": 1161,
+          "velocity": 536
+        }
+      ]
+    },
+    {
+      "keyword": "smartcmd/MinecraftConsoles",
+      "description": "A certain block game",
+      "score": 48,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 10,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "c++"
+      ],
+      "signals": [
+        {
+          "title": "smartcmd/MinecraftConsoles",
+          "url": "https://github.com/smartcmd/MinecraftConsoles",
+          "source": "github",
+          "engagement": 1371,
+          "velocity": 521
+        }
+      ]
+    },
+    {
+      "keyword": "torvalds/linux",
+      "description": "Linux kernel source tree",
+      "score": 48,
+      "scoreBreakdown": {
+        "engagement": 15,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "c"
+      ],
+      "signals": [
+        {
+          "title": "torvalds/linux",
+          "url": "https://github.com/torvalds/linux",
+          "source": "github",
+          "engagement": 220586,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "TheAlgorithms/Python",
+      "description": "All Algorithms implemented in Python",
+      "score": 48,
+      "scoreBreakdown": {
+        "engagement": 15,
+        "velocity": 0,
+        "contentPotential": 25,
+        "viralPotential": 8
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "algorithm",
+        "algorithm-competitions",
+        "algorithms-implemented",
+        "algos",
+        "community-driven",
+        "python"
+      ],
+      "signals": [
+        {
+          "title": "TheAlgorithms/Python",
+          "url": "https://github.com/TheAlgorithms/Python",
+          "source": "github",
+          "engagement": 218266,
+          "velocity": 0
+        }
+      ]
+    },
+    {
+      "keyword": "slowmist/openclaw-security-practice-guide",
+      "description": "This guide is designed for OpenClaw itself (Agent-facing), not as a traditional human-only hardening checklist.",
+      "score": 46,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 8,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "shell"
+      ],
+      "signals": [
+        {
+          "title": "slowmist/openclaw-security-practice-guide",
+          "url": "https://github.com/slowmist/openclaw-security-practice-guide",
+          "source": "github",
+          "engagement": 627,
+          "velocity": 413
+        }
+      ]
+    },
+    {
+      "keyword": "ylytdeng/wechat-decrypt",
+      "description": "WeChat 4.0 database decryptor - extract keys from memory, decrypt SQLCipher 4 databases, real-time message monitor",
+      "score": 46,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 8,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "python"
+      ],
+      "signals": [
+        {
+          "title": "ylytdeng/wechat-decrypt",
+          "url": "https://github.com/ylytdeng/wechat-decrypt",
+          "source": "github",
+          "engagement": 1410,
+          "velocity": 388
+        }
+      ]
+    },
+    {
+      "keyword": "LeoYeAI/openclaw-master-skills",
+      "description": "🧠 Curated collection of 127+ best OpenClaw skills — weekly updated from skills.sh, GitHub & ClaWHub. Powered by MyClaw.ai",
+      "score": 45,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 7,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "visualizer"
+      ],
+      "category": "ai",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "agentskills",
+        "ai-agent",
+        "curated",
+        "myclaw",
+        "openclaw",
+        "python"
+      ],
+      "signals": [
+        {
+          "title": "LeoYeAI/openclaw-master-skills",
+          "url": "https://github.com/LeoYeAI/openclaw-master-skills",
+          "source": "github",
+          "engagement": 623,
+          "velocity": 362
+        }
+      ]
+    },
+    {
+      "keyword": "ringhyacinth/Star-Office-UI",
+      "description": "A pixel office for your OpenClaw: turn invisible work states into a cozy little space with characters, daily notes, and guest agents. Code under MIT; art assets for non-commercial learning only.",
+      "score": 44,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 6,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "agent-collaboration",
+        "ai-assistant",
+        "dashboard",
+        "flask",
+        "mobile-friendly",
+        "html"
+      ],
+      "signals": [
+        {
+          "title": "ringhyacinth/Star-Office-UI",
+          "url": "https://github.com/ringhyacinth/Star-Office-UI",
+          "source": "github",
+          "engagement": 1734,
+          "velocity": 307
+        }
+      ]
+    },
+    {
+      "keyword": "ForLoopCodes/contextplus",
+      "description": "Semantic Intelligence for Large-Scale Engineering. Context+ is an MCP server designed for developers who demand 99% accuracy. By combining Tree-sitter AST parsing, Spectral Clustering, and Obsidian-style linking, Context+ turns a massive codebase into a searchable, hierarchical feature graph.",
+      "score": 44,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 6,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "mcp-server",
+        "typescript"
+      ],
+      "signals": [
+        {
+          "title": "ForLoopCodes/contextplus",
+          "url": "https://github.com/ForLoopCodes/contextplus",
+          "source": "github",
+          "engagement": 1283,
+          "velocity": 299
+        }
+      ]
+    },
+    {
+      "keyword": "34306/vphone-aio",
+      "description": "1 script run the vphone",
+      "score": 43,
+      "scoreBreakdown": {
+        "engagement": 0,
+        "velocity": 5,
+        "contentPotential": 25,
+        "viralPotential": 13
+      },
+      "suggestedContentTypes": [
+        "howto",
+        "comparison",
+        "roundup",
+        "article"
+      ],
+      "category": "tech",
+      "contentFormat": "lifehack",
+      "relatedKeywords": [
+        "shell"
+      ],
+      "signals": [
+        {
+          "title": "34306/vphone-aio",
+          "url": "https://github.com/34306/vphone-aio",
+          "source": "github",
+          "engagement": 841,
+          "velocity": 249
+        }
+      ]
+    }
+  ]
+}
