@@ -9,25 +9,25 @@ const { locale = 'en' } = Astro.props;
 const year = new Date().getFullYear().toString();
 ---
 
-<footer class="border-t border-white/5 bg-slate-950">
+<footer style="background: #0A0E27; border-top: 1px solid #1F2847;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <!-- Brand -->
       <div class="md:col-span-1">
         <a href={getLocalizedPath('/', locale)} class="flex items-center gap-2 mb-4">
-          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center text-[#0A0E27] font-bold text-sm" style="background: #00E5FF;">
             F
           </div>
-          <span class="text-lg font-bold text-white">Flux<span class="text-blue-400">Fact</span></span>
+          <span class="text-lg font-bold text-txt-primary">Flux<span style="color: #00E5FF">Fact</span></span>
         </a>
-        <p class="text-sm text-slate-400 leading-relaxed">
+        <p class="text-sm text-txt-secondary leading-relaxed">
           {t(locale, 'site.description')}
         </p>
       </div>
 
       <!-- Popular Tools -->
       <div>
-        <h3 class="text-sm font-semibold text-white mb-4">{t(locale, 'footer.tools')}</h3>
+        <h3 class="text-sm font-semibold text-txt-primary mb-4">{t(locale, 'footer.tools')}</h3>
         <ul class="space-y-2" id="footer-tools">
           <!-- Populated dynamically by orchestrator -->
         </ul>
@@ -35,12 +35,15 @@ const year = new Date().getFullYear().toString();
 
       <!-- Languages -->
       <div>
-        <h3 class="text-sm font-semibold text-white mb-4">{t(locale, 'footer.languages')}</h3>
+        <h3 class="text-sm font-semibold text-txt-primary mb-4">{t(locale, 'footer.languages')}</h3>
         <ul class="space-y-2">
           {Object.entries(languages).map(([code, name]) => (
             <li>
               <a href={getLocalizedPath('/', code as Locale)}
-                 class:list={["text-sm transition-colors hover:text-blue-400", code === locale ? 'text-blue-400' : 'text-slate-400']}>
+                 class="text-sm transition-colors"
+                 style={code === locale ? 'color: #00E5FF' : 'color: #A0B0D0'}
+                 onmouseover="this.style.color='#00E5FF'"
+                 onmouseout={code === locale ? '' : "this.style.color='#A0B0D0'"}>
                 {name}
               </a>
             </li>
@@ -50,17 +53,17 @@ const year = new Date().getFullYear().toString();
 
       <!-- About -->
       <div>
-        <h3 class="text-sm font-semibold text-white mb-4">{t(locale, 'footer.about')}</h3>
+        <h3 class="text-sm font-semibold text-txt-primary mb-4">{t(locale, 'footer.about')}</h3>
         <ul class="space-y-2">
-          <li><a href={getLocalizedPath('/about/', locale)} class="text-sm text-slate-400 hover:text-blue-400 transition-colors">{t(locale, 'footer.about')}</a></li>
-          <li><a href={getLocalizedPath('/privacy/', locale)} class="text-sm text-slate-400 hover:text-blue-400 transition-colors">{t(locale, 'footer.privacy')}</a></li>
-          <li><a href={getLocalizedPath('/terms/', locale)} class="text-sm text-slate-400 hover:text-blue-400 transition-colors">{t(locale, 'footer.terms')}</a></li>
+          <li><a href={getLocalizedPath('/about/', locale)} class="text-sm text-txt-secondary hover:text-accent-cyan transition-colors">{t(locale, 'footer.about')}</a></li>
+          <li><a href={getLocalizedPath('/privacy/', locale)} class="text-sm text-txt-secondary hover:text-accent-cyan transition-colors">{t(locale, 'footer.privacy')}</a></li>
+          <li><a href={getLocalizedPath('/terms/', locale)} class="text-sm text-txt-secondary hover:text-accent-cyan transition-colors">{t(locale, 'footer.terms')}</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-white/5 text-center">
-      <p class="text-sm text-slate-500">{t(locale, 'footer.copyright', { year })}</p>
+    <div class="mt-12 pt-8 text-center" style="border-top: 1px solid #1F2847;">
+      <p class="text-sm text-txt-muted">{t(locale, 'footer.copyright', { year })}</p>
     </div>
   </div>
 </footer>

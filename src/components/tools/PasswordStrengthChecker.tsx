@@ -20,8 +20,8 @@ interface StrengthResult {
 function analyzePassword(password: string): StrengthResult {
   if (!password) {
     return {
-      score: 0, label: 'Enter a password', color: '#52525b',
-      gradientFrom: '#52525b', gradientTo: '#52525b',
+      score: 0, label: 'Enter a password', color: '#5B6B8A',
+      gradientFrom: '#5B6B8A', gradientTo: '#5B6B8A',
       entropy: 0, crackTime: '—', tips: [], checks: [],
     };
   }
@@ -127,7 +127,7 @@ export default function PasswordStrengthChecker() {
 
       {/* Password input */}
       <div>
-        <label className="block text-[13px] font-medium tracking-wide uppercase mb-2.5" style={{ color: '#95a2b3' }}>
+        <label className="block text-[13px] font-medium tracking-wide uppercase mb-2.5" style={{ color: '#A0B0D0' }}>
           Enter your password
         </label>
         <div className="relative">
@@ -136,10 +136,10 @@ export default function PasswordStrengthChecker() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Type or paste your password..."
-            className="w-full min-h-[56px] px-4 py-3 pr-12 rounded-xl text-lg text-white placeholder-[#52525b] transition-all duration-200 focus:outline-none"
+            className="w-full min-h-[56px] px-4 py-3 pr-12 rounded-xl text-lg text-white placeholder-[#5B6B8A] transition-all duration-200 focus:outline-none"
             style={{
-              background: '#18181b',
-              border: `1px solid ${password ? result.color + '40' : 'rgba(255,255,255,0.08)'}`,
+              background: '#141B3C',
+              border: `1px solid ${password ? result.color + '40' : '#1F2847'}`,
               boxShadow: password ? `0 4px 16px rgba(0,0,0,0.3), 0 0 0 3px ${result.color}15` : '0 4px 16px rgba(0,0,0,0.3)',
             }}
             autoComplete="off"
@@ -148,7 +148,7 @@ export default function PasswordStrengthChecker() {
           <button
             onClick={() => setShowPassword(!showPassword)}
             className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg transition-colors hover:bg-white/[0.06]"
-            style={{ color: '#52525b' }}
+            style={{ color: '#5B6B8A' }}
             type="button"
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
@@ -173,9 +173,9 @@ export default function PasswordStrengthChecker() {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold" style={{ color: result.color }}>{result.label}</span>
-              <span className="text-sm font-mono" style={{ color: '#52525b' }}>{result.score}/100</span>
+              <span className="text-sm font-mono" style={{ color: '#5B6B8A' }}>{result.score}/100</span>
             </div>
-            <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+            <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(31,40,71,0.8)' }}>
               <div
                 className="h-full rounded-full transition-all duration-500 ease-out"
                 style={{
@@ -189,23 +189,23 @@ export default function PasswordStrengthChecker() {
 
           {/* Stats row */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <p className="text-[11px] font-medium tracking-widest uppercase mb-1" style={{ color: '#52525b' }}>Entropy</p>
+            <div className="p-4 rounded-xl" style={{ background: 'rgba(31,40,71,0.4)', border: '1px solid rgba(31,40,71,0.8)' }}>
+              <p className="text-[11px] font-medium tracking-widest uppercase mb-1" style={{ color: '#5B6B8A' }}>Entropy</p>
               <p className="text-lg font-bold font-mono text-white">{result.entropy} bits</p>
             </div>
-            <div className="p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <p className="text-[11px] font-medium tracking-widest uppercase mb-1" style={{ color: '#52525b' }}>Length</p>
+            <div className="p-4 rounded-xl" style={{ background: 'rgba(31,40,71,0.4)', border: '1px solid rgba(31,40,71,0.8)' }}>
+              <p className="text-[11px] font-medium tracking-widest uppercase mb-1" style={{ color: '#5B6B8A' }}>Length</p>
               <p className="text-lg font-bold font-mono text-white">{password.length} chars</p>
             </div>
-            <div className="p-4 rounded-xl col-span-2 sm:col-span-1" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <p className="text-[11px] font-medium tracking-widest uppercase mb-1" style={{ color: '#52525b' }}>Crack time</p>
+            <div className="p-4 rounded-xl col-span-2 sm:col-span-1" style={{ background: 'rgba(31,40,71,0.4)', border: '1px solid rgba(31,40,71,0.8)' }}>
+              <p className="text-[11px] font-medium tracking-widest uppercase mb-1" style={{ color: '#5B6B8A' }}>Crack time</p>
               <p className="text-lg font-bold font-mono" style={{ color: result.color }}>{result.crackTime}</p>
             </div>
           </div>
 
           {/* Checklist */}
           <div className="space-y-2">
-            <h3 className="text-sm font-medium" style={{ color: '#95a2b3' }}>Requirements</h3>
+            <h3 className="text-sm font-medium" style={{ color: '#A0B0D0' }}>Requirements</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
               {result.checks.map((check) => (
                 <div key={check.label} className="flex items-center gap-2.5 py-1.5">
@@ -214,11 +214,11 @@ export default function PasswordStrengthChecker() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   ) : (
-                    <svg className="w-4 h-4 shrink-0" style={{ color: '#52525b' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 shrink-0" style={{ color: '#5B6B8A' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <circle cx="12" cy="12" r="9" strokeWidth={2} />
                     </svg>
                   )}
-                  <span className="text-sm" style={{ color: check.passed ? '#d4d4d8' : '#52525b' }}>
+                  <span className="text-sm" style={{ color: check.passed ? '#d4d4d8' : '#5B6B8A' }}>
                     {check.label}
                   </span>
                 </div>

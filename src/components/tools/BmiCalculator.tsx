@@ -119,16 +119,16 @@ export default function BmiCalculator() {
   return (
     <div className="space-y-8">
       {/* Unit toggle */}
-      <div className="flex items-center gap-1 p-1 rounded-xl w-fit" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+      <div className="flex items-center gap-1 p-1 rounded-xl w-fit" style={{ background: 'rgba(0,229,255,0.04)', border: '1px solid rgba(31,40,71,0.8)' }}>
         {(['metric', 'imperial'] as const).map((u) => (
           <button
             key={u}
             onClick={() => setUnit(u)}
             className="relative px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
             style={{
-              background: unit === u ? 'linear-gradient(135deg, #007CF0, #00DFD8)' : 'transparent',
-              color: unit === u ? 'white' : '#95a2b3',
-              boxShadow: unit === u ? '0 0 20px -4px rgba(0,124,240,0.4)' : 'none',
+              background: unit === u ? 'linear-gradient(135deg, #00E5FF, #00FF88)' : 'transparent',
+              color: unit === u ? 'white' : '#A0B0D0',
+              boxShadow: unit === u ? '0 0 20px -4px rgba(0,229,255,0.4)' : 'none',
             }}
           >
             {u === 'metric' ? 'Metric (kg/cm)' : 'Imperial (lbs/in)'}
@@ -139,7 +139,7 @@ export default function BmiCalculator() {
       {/* Inputs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-[13px] font-medium tracking-wide uppercase mb-2.5" style={{ color: '#95a2b3' }}>
+          <label className="block text-[13px] font-medium tracking-wide uppercase mb-2.5" style={{ color: '#A0B0D0' }}>
             Weight ({unit === 'metric' ? 'kg' : 'lbs'})
           </label>
           <input
@@ -148,18 +148,18 @@ export default function BmiCalculator() {
             onChange={(e) => setWeight(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={unit === 'metric' ? '70' : '154'}
-            className="w-full min-h-[52px] px-4 py-3 rounded-xl text-lg text-white placeholder-[#52525b] transition-all duration-200 focus:outline-none"
+            className="w-full min-h-[52px] px-4 py-3 rounded-xl text-lg text-white placeholder-[#5B6B8A] transition-all duration-200 focus:outline-none"
             style={{
-              background: '#18181b',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: '#141B3C',
+              border: '1px solid #1F2847',
               boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'rgba(0,124,240,0.5)';
-              e.target.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), 0 0 0 3px rgba(0,124,240,0.1)';
+              e.target.style.borderColor = 'rgba(0,229,255,0.5)';
+              e.target.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), 0 0 0 3px rgba(0,229,255,0.1)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(255,255,255,0.08)';
+              e.target.style.borderColor = '#1F2847';
               e.target.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3)';
             }}
             min="1"
@@ -167,7 +167,7 @@ export default function BmiCalculator() {
           />
         </div>
         <div>
-          <label className="block text-[13px] font-medium tracking-wide uppercase mb-2.5" style={{ color: '#95a2b3' }}>
+          <label className="block text-[13px] font-medium tracking-wide uppercase mb-2.5" style={{ color: '#A0B0D0' }}>
             Height ({unit === 'metric' ? 'cm' : 'inches'})
           </label>
           <input
@@ -176,18 +176,18 @@ export default function BmiCalculator() {
             onChange={(e) => setHeight(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={unit === 'metric' ? '175' : '69'}
-            className="w-full min-h-[52px] px-4 py-3 rounded-xl text-lg text-white placeholder-[#52525b] transition-all duration-200 focus:outline-none"
+            className="w-full min-h-[52px] px-4 py-3 rounded-xl text-lg text-white placeholder-[#5B6B8A] transition-all duration-200 focus:outline-none"
             style={{
-              background: '#18181b',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: '#141B3C',
+              border: '1px solid #1F2847',
               boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = 'rgba(0,124,240,0.5)';
-              e.target.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), 0 0 0 3px rgba(0,124,240,0.1)';
+              e.target.style.borderColor = 'rgba(0,229,255,0.5)';
+              e.target.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), 0 0 0 3px rgba(0,229,255,0.1)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'rgba(255,255,255,0.08)';
+              e.target.style.borderColor = '#1F2847';
               e.target.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3)';
             }}
             min="1"
@@ -201,15 +201,15 @@ export default function BmiCalculator() {
         onClick={handleCalculate}
         className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200 active:scale-[0.98]"
         style={{
-          background: 'linear-gradient(135deg, #007CF0, #00DFD8)',
-          boxShadow: '0 0 30px -6px rgba(0,124,240,0.4)',
+          background: 'linear-gradient(135deg, #00E5FF, #00FF88)',
+          boxShadow: '0 0 30px -6px rgba(0,229,255,0.4)',
         }}
         onMouseEnter={(e) => {
-          (e.target as HTMLElement).style.boxShadow = '0 0 40px -4px rgba(0,124,240,0.6)';
+          (e.target as HTMLElement).style.boxShadow = '0 0 40px -4px rgba(0,229,255,0.6)';
           (e.target as HTMLElement).style.filter = 'brightness(1.1)';
         }}
         onMouseLeave={(e) => {
-          (e.target as HTMLElement).style.boxShadow = '0 0 30px -6px rgba(0,124,240,0.4)';
+          (e.target as HTMLElement).style.boxShadow = '0 0 30px -6px rgba(0,229,255,0.4)';
           (e.target as HTMLElement).style.filter = 'brightness(1)';
         }}
       >
@@ -240,14 +240,14 @@ export default function BmiCalculator() {
             />
 
             <div className="relative z-10">
-              <p className="text-[13px] font-medium tracking-widest uppercase mb-3" style={{ color: '#95a2b3' }}>
+              <p className="text-[13px] font-medium tracking-widest uppercase mb-3" style={{ color: '#A0B0D0' }}>
                 Your BMI
               </p>
               <div className="font-bold leading-none mb-3" style={{ fontSize: 'clamp(56px, 12vw, 80px)', letterSpacing: '-0.04em' }}>
                 <AnimatedNumber value={result.bmi} color={result.color} />
               </div>
               <div className="text-lg font-semibold text-white mb-2">{result.category}</div>
-              <p className="text-sm max-w-md mx-auto" style={{ color: '#95a2b3' }}>{result.description}</p>
+              <p className="text-sm max-w-md mx-auto" style={{ color: '#A0B0D0' }}>{result.description}</p>
             </div>
           </div>
 
@@ -274,13 +274,13 @@ export default function BmiCalculator() {
               className="absolute top-0 -mt-1.5 w-6 h-6 rounded-full border-2 border-white transition-all duration-700 ease-out"
               style={{
                 left: `calc(${scalePosition}% - 12px)`,
-                background: '#09090b',
+                background: '#0A0E27',
                 boxShadow: `0 0 12px ${result.color}80`,
               }}
             >
               <div className="w-full h-full rounded-full" style={{ background: result.color, opacity: 0.8 }} />
             </div>
-            <div className="flex justify-between mt-4 text-xs font-mono" style={{ color: '#52525b' }}>
+            <div className="flex justify-between mt-4 text-xs font-mono" style={{ color: '#5B6B8A' }}>
               <span>15</span>
               <span>18.5</span>
               <span>25</span>

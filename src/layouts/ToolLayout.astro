@@ -1,16 +1,6 @@
 ---
 /**
  * ToolLayout — interactive tool pages with SEO article below.
- *
- * Structure:
- * 1. Navigation + Breadcrumbs
- * 2. Tool Hero (title, description)
- * 3. Interactive Tool (React island) — in glass card
- * 4. Share Buttons
- * 5. Article Content (SEO body below the fold)
- * 6. FAQ (rich snippets)
- * 7. Related Tools
- * 8. Footer
  */
 import BaseLayout from './BaseLayout.astro';
 import Navigation from '../components/ui/Navigation.astro';
@@ -87,8 +77,8 @@ const breadcrumbs = [
   <main class="pt-16">
     <!-- Ambient background -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
-      <div class="orb-blue w-[500px] h-[500px] -top-60 -right-40 opacity-30" />
-      <div class="orb-purple w-[400px] h-[400px] top-1/2 -left-40 opacity-20" />
+      <div class="orb-cyan w-[500px] h-[500px] -top-60 -right-40 opacity-30" />
+      <div class="orb-magenta w-[400px] h-[400px] top-1/2 -left-40 opacity-20" />
     </div>
 
     <!-- Breadcrumbs -->
@@ -97,14 +87,14 @@ const breadcrumbs = [
         {breadcrumbs.map((crumb, i) => (
           <li class="flex items-center gap-2">
             {i > 0 && (
-              <svg class="w-3.5 h-3.5" style="color: #52525b" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5" style="color: #5B6B8A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             )}
             {i === breadcrumbs.length - 1 ? (
               <span class="text-txt-secondary">{crumb.name}</span>
             ) : (
-              <a href={crumb.url} class="text-txt-muted hover:text-accent-blue transition-colors">{crumb.name}</a>
+              <a href={crumb.url} class="text-txt-muted hover:text-accent-cyan transition-colors">{crumb.name}</a>
             )}
           </li>
         ))}
@@ -116,7 +106,7 @@ const breadcrumbs = [
       <div class="max-w-3xl">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge-green">{t(locale, 'tool.free')}</span>
-          <span class="text-xs font-medium uppercase tracking-wide" style="color: #52525b">{category}</span>
+          <span class="text-xs font-medium uppercase tracking-wide" style="color: #5B6B8A">{category}</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-txt-primary mb-4" style="letter-spacing: -0.02em">{title}</h1>
         <p class="text-lg text-txt-secondary leading-relaxed">{description}</p>
@@ -125,7 +115,7 @@ const breadcrumbs = [
 
     <!-- Interactive Tool -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div class="glass-card p-6 md:p-10">
+      <div class="card p-6 md:p-10">
         <slot name="tool" />
       </div>
     </section>
@@ -142,7 +132,7 @@ const breadcrumbs = [
 
     <!-- Divider -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="h-px" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)" />
+      <div class="h-px" style="background: linear-gradient(90deg, transparent, #1F2847, transparent)" />
     </div>
 
     <!-- Article Content -->
@@ -159,14 +149,14 @@ const breadcrumbs = [
           <h2 class="heading-section mb-8">{t(locale, 'tool.faq')}</h2>
           <div class="space-y-3">
             {faq.map((item, i) => (
-              <details class="glass-card group" open={i === 0}>
-                <summary class="flex items-center justify-between cursor-pointer p-5 text-txt-primary font-medium hover:text-accent-blue transition-colors">
+              <details class="card group" open={i === 0}>
+                <summary class="flex items-center justify-between cursor-pointer p-5 text-txt-primary font-medium hover:text-accent-cyan transition-colors">
                   <span>{item.question}</span>
-                  <svg class="w-5 h-5 shrink-0 ml-4 transition-transform duration-200 group-open:rotate-180" style="color: #52525b" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 shrink-0 ml-4 transition-transform duration-200 group-open:rotate-180" style="color: #5B6B8A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div class="px-5 pb-5 text-txt-secondary leading-relaxed border-t pt-4" style="border-color: rgba(255,255,255,0.05)">
+                <div class="px-5 pb-5 text-txt-secondary leading-relaxed pt-4" style="border-top: 1px solid #1F2847;">
                   {item.answer}
                 </div>
               </details>
